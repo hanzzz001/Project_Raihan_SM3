@@ -301,14 +301,10 @@
                 });
             });
 
-            // function showDataModal(id) {
-            //     $('#modalDialogScrollable_' + id).modal('show');
-            // }
-
             function showDataModal(id) {
                 // Mengambil data pelanggan berdasarkan ID
                 $.ajax({
-                    url: '/getPelanggan/' + id, // Gantilah URL dengan endpoint yang sesuai
+                    url: '/getPelanggan/' + id, 
                     type: 'GET',
                     success: function(response) {
                         // Menampilkan modal

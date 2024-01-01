@@ -31,13 +31,6 @@
     <!-- Template Main CSS File -->
     <link href="{{ url('admin/assets/css/style.css') }}" rel="stylesheet">
 
-    <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Updated: Nov 17 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
     <style>
         .text-center {
             text-align: center;
@@ -66,21 +59,10 @@
             max-width: 100%;
         }
 
-        /* Lebar minimum untuk kartu */
-        /* .info-card {
-            min-width: 250px;
-            margin-left: 200px;
-        } */
 
         .recent-sales{
             min-width: 300px;
         }
-
-        /* Untuk memberi ruang antara kartu dan grafik */
-        /* #reportsChart {
-            width: 1000px;
-            margin-left: 15px;
-        } */
     </style>
 </head>
 
@@ -149,13 +131,10 @@
                                 <span>Sign Out</span>
                             </a>
                         </li>
-
                     </ul><!-- End Profile Dropdown Items -->
                 </li><!-- End Profile Nav -->
-
             </ul>
         </nav><!-- End Icons Navigation -->
-
     </header><!-- End Header -->
 
     <!-- ======= Sidebar ======= -->
@@ -188,10 +167,6 @@
             &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
             Jangan Lupa <a href="https://www.instagram.com/p/Bk4REcHBpR9/">Tersenyum Hari Ini :) </a>
         </div>
     </footer><!-- End Footer -->

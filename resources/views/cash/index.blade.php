@@ -31,7 +31,7 @@
                                     <td>{{ $data->namaB }}</td>
                                     <td>{{ $data->namaC }}</td>
                                     <td>Rp. {{ number_format($data->harga, 0, ',', '.') }}</td>
-                                    <td>{{ $data->created_at->format('d-m-Y') }}</td> {{-- Perhatikan perubahan disini, ubah created_ad menjadi created_at --}}
+                                    <td>{{ $data->created_at->format('d-m-Y') }}</td> 
                                 </tr>
                             @endforeach
                         </tbody>

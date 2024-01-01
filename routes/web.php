@@ -41,6 +41,6 @@ Route::group(['middleware' => ['auth']],function(){
     });
 
     Route::group(['middleware' => ['cekUserLogin:2']],function(){
-        Route::resource('pembeli',Pembeli::class);
+        Route::resource('pelanggan', PelangganController::class);
     });
 });

@@ -48,11 +48,9 @@
 
                                             @csrf
                                             @method('DELETE')
-                                            <!-- <button type="submit" class="btn btn-outline-danger"><i class="fa fa-trash"></i></button> -->
                                             <button type="submit" class="btn btn-danger rounded-pill">
                                                 <div class="icon">
                                                     <i class="bi bi-trash-fill"></i>
-                                                    <!-- <div class="label">trash-fill</div> -->
                                                 </div>
                                             </button>
                                         </form>
@@ -60,7 +58,6 @@
                                         <a href="{{ route('barang.edit', $data->id) }}" class="btn btn-outline-warning">
                                             <div class="icon">
                                                 <i class="bi bi-pencil-square"></i>
-                                                <!-- <div class="label">pencil-square</div> -->
                                             </div>
                                         </a>
                                     </td>

@@ -39,3 +39,13 @@
     </a>
 </li>
 @endif
+
+@if($user->level == 2)
+<li class="nav-heading">Detail Kredit</li>
+<li class="nav-item">
+    <a class="nav-link collapsed" href="{{ url('pelanggan') }}">
+        <i class="bi bi-envelope"></i>
+        <span>Info Pelanggan</span>
+    </a>
+</li>
+@endif
