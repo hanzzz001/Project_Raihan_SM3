@@ -60,6 +60,7 @@ class PelangganController extends Controller
             'ktp' => $ktp->hashName(),
             'kk' => $kk->hashName(),
             'harga' => $request->harga,
+            'unit' => $request->unit,
         ]);
 
         if ($pelanggan) {

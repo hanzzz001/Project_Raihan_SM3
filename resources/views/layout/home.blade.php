@@ -64,15 +64,16 @@
                     <div class="card info-card customers-card">
 
                         <div class="card-body">
-                            <h5 class="card-title">Customers <span>| This Year</span></h5>
+                            <h5 class="card-title">Jumlah <span>| Barang Terjual</span></h5>
 
                             <div class="d-flex align-items-center">
                                 <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                     <i class="bi bi-people"></i>
                                 </div>
                                 <div class="ps-3">
-                                    {{-- <h6>{{ $banyakPembeli}}</h6> --}}
-
+                                    <h6>{{ $totalSemua }} </h6>
+                                    <span class="text-danger small pt-1 fw-bold">{{ $bulan }}</span> <span
+                                        class="text-muted small pt-2 ps-1">{{ $tahun }}</span>
                                 </div>
                             </div>
 
@@ -111,13 +112,10 @@
                             new ApexCharts(document.querySelector("#reportsChart"), {
                                 series: [{
                                     name: 'Penjualan Kredit',
-                                    data: @json($dataTotalPemasukan),
-                                }, {
-                                    name: 'Penjualan Cash',
                                     data: @json($dataTotalCash),
                                 }, {
-                                    name: 'Customers',
-                                    data: [15, 11, 32, 18, 9, 24, 11]
+                                    name: 'Penjualan Cash',
+                                    data: @json($dataTotalPemasukan),
                                 }],
                                 chart: {
                                     height: 350,
@@ -148,7 +146,8 @@
                                 },
                                 xaxis: {
                                     // type: 'datetime',
-                                    categories: @json($dataBulan),
+                                    // categories: @json($dataBulan),
+                                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep','Okt','Nov','Des'],
                                 },
                                 yaxis: {
                                     labels: {
@@ -177,5 +176,67 @@
 
         <!-- Recent Sales -->
         <!-- End Recent Sales -->
+    </div>
+
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Jumlah Barang Terjual </h5>
+
+                <!-- Column Chart -->
+                <div id="columnChart"></div>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                        new ApexCharts(document.querySelector("#columnChart"), {
+                            series: [{
+                                name: 'Barang Kredit',
+                                data: @json($dataBarangKredit),
+                            }, {
+                                name: 'Barang Cash',
+                                data: @json($dataBarangCash),
+                            }],
+                            chart: {
+                                type: 'bar',
+                                height: 350
+                            },
+                            plotOptions: {
+                                bar: {
+                                    horizontal: false,
+                                    columnWidth: '55%',
+                                    endingShape: 'rounded'
+                                },
+                            },
+                            dataLabels: {
+                                enabled: false
+                            },
+                            stroke: {
+                                show: true,
+                                width: 2,
+                                colors: ['transparent']
+                            },
+                            xaxis: {
+                                categories: @json($dataBulan),
+                            },
+                            yaxis: {
+                                title: {
+                                    text: '$ (thousands)'
+                                }
+                            },
+                            fill: {
+                                opacity: 1
+                            },
+                            tooltip: {
+                                x: {
+                                    format: 'MM/yy'
+                                },
+                            }
+                        }).render();
+                    });
+                </script>
+                <!-- End Column Chart -->
+
+            </div>
+        </div>
     </div>
 @endsection

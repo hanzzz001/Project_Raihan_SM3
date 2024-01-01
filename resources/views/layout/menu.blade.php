@@ -12,7 +12,7 @@
 @if ($user->level == 1)
     <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('barang') }}">
-            <i class="bi bi-person"></i>
+            <i class="bi bi-basket-fill"></i>
             <span>Stok Barang</span>
         </a>
     </li><!-- End Profile Page Nav -->
@@ -20,13 +20,13 @@
     <li class="nav-heading">Penjualan</li>
     <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('terjual') }}">
-            <i class="bi bi-question-circle"></i>
+            <i class="bx bxs-purchase-tag-alt"></i>
             <span>Kredit</span>
         </a>
     </li><!-- End F.A.Q Page Nav -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('cash') }}">
-            <i class="bi bi-envelope"></i>
+            <i class="bx bxs-purchase-tag"></i>
             <span>Cash</span>
         </a>
     </li>
@@ -34,7 +34,7 @@
     <li class="nav-heading">Detail Kredit</li>
     <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('pelanggan') }}">
-            <i class="bi bi-envelope"></i>
+            <i class="ri-account-circle-fill"></i>
             <span>Info Pelanggan</span>
         </a>
     </li>

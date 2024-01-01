@@ -24,9 +24,17 @@ class LayoutController extends Controller
             $totalCash = Cash::whereMonth('created_at', $i)
                 ->whereYear('created_at', $tahun)
                 ->sum('harga');
+            $BarangKredit = Pelanggan::whereMonth('created_at', $i)
+                ->whereYear('created_at', $tahun)
+                ->sum('unit');
+            $BarangCash = Cash::whereMonth('created_at', $i)
+                ->whereYear('created_at', $tahun)
+                ->sum('unit');
             $dataBulan[] = Carbon::create()->month($i)->format('F');
             $dataTotalPemasukan[] = $totalPemasukan;
             $dataTotalCash[] = $totalCash;
+            $dataBarangKredit[] = $BarangKredit;
+            $dataBarangCash[] = $BarangCash;
         }
 
         // Menghitung penjualan untuk bulan ini
@@ -37,7 +45,20 @@ class LayoutController extends Controller
         // Menghitung penjualan untuk bulan sebelumnya
         $penjualanCashBulan = Cash::whereMonth('created_at', now()->format('m'))
             ->whereYear('created_at', now()->format('Y'))
-            ->sum('harga');
+            ->sum('total');
+
+        // Total Jumlah barang terjual kredit
+        $totalBarangKredit = Pelanggan::whereMonth('created_at', now()->format('m'))
+            ->whereYear('created_at', now()->format('Y'))
+            ->sum('unit');
+
+        // Total Jumlah barang terjual cash
+        $totalBarangCash = Cash::whereMonth('created_at', now()->format('m'))
+            ->whereYear('created_at', now()->format('Y'))
+            ->sum('unit');
+
+        $totalSemua = $totalBarangCash + $totalBarangKredit;
+
 
         $data = [
             'chart' => $chart->build(),
@@ -48,6 +69,11 @@ class LayoutController extends Controller
             'dataBulan' => $dataBulan,
             'dataTotalPemasukan' => $dataTotalPemasukan,
             'dataTotalCash' => $dataTotalCash,
+            'totalBarangKredit' => $totalBarangKredit,
+            'totalBarangCash' => $totalBarangCash,
+            'totalSemua' => $totalSemua,
+            'dataBarangKredit' => $dataBarangKredit,
+            'dataBarangCash' => $dataBarangCash
         ];
 
         return view('layout.home', $data)->with([

@@ -35,7 +35,7 @@ class CashController extends Controller
         $cash = Cash::create([
             'merk' => $request->merk,
             'namaB' => $request->namaB,
-            'namaC' => $request->namaC,
+            'unit' => $request->unit,
             'harga' => $request->harga,
         ]);
 

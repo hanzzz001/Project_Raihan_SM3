@@ -4,91 +4,74 @@
 @endsection
 @section('isi')
     <br>
-    <div class="col">
-        <div class="card card-primary">
-            <div class="card-header">
-                <h3 class="card-title">Tambah Data Barang Baru Masuk</h3>
-            </div>
-            <form action="{{ route('barang.store') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col col-md-12 form-group">
-                            <label class="col-sm-2 col-form-label">Kategori Barang</label>
-                            <div class="col-sm-10">
-                                <select class="form-select" aria-label="Default select example" id="kategori" name="kategori" aria-placeholder="Pilih Jenis Barang">
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Floating labels Form</h5>
+
+          <!-- Floating Labels Form -->
+          <form class="row g-3" action="{{ route('barang.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="col-md-12">
+              <div class="form-floating">
+                <select class="form-select" aria-label="Default select example" id="kategori"
+                                    name="kategori" aria-placeholder="Pilih Jenis Barang">
                                     <option value="Elektronik">Elektronik</option>
                                     <option value="Meuble">Meuble</option>
                                 </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col col-md-12 form-group">
-                            <label for="inputText" class="col-sm-2 col-form-label">Merk </label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="merk" name="merk"
+                <label for="floatingName">Kategori Barang</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="merk" name="merk"
                                     placeholder="Masukkan Merk Barang">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="co col-md-12 form-group">
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <div class="col-sm-10">
-                                        <label for="inputNumber" class="col-sm-2 col-form-label">Upload Foto Barang</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" type="file" id="foto" name="foto">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col col-md-12 form-group">
-                            <label for="inputText" class="col-sm-2 col-form-label">Nama Barang </label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="namaB" name="namaB"
+                <label for="floatingEmail">Merk Barang</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="namaB" name="namaB"
                                     placeholder="Masukkan Nama Barang">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col col-md-12 form-group">
-                            <label for="inputText" class="col-sm-2 col-form-label">Tipe/Ukuran Barang </label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="tipe_ukuran" name="tipe_ukuran"
-                                    placeholder="Masukkan Tipe/Ukuran Barang">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col col-md-12 form-group">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">Jumlah Stok</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control" id="stok" name="stok"
-                                    placeholder="Masukkan Jumlah Stok">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col col-md-12 form-group">
-                            <label for="inputText" class="col-sm-2 col-form-label">Harga Barang</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="harga" name="harga"
+                <label for="floatingPassword">Nama Barang</label>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-floating">
+                <textarea class="form-control" class="form-control" id="tipe_ukuran" name="tipe_ukuran" style="height: 100px;"></textarea>
+                <label for="floatingTextarea">Tipe/Ukuran Barang</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="col-md-12">
+                <div class="form-floating">
+                    <input type="number" class="form-control" id="stok" name="stok"
+                    placeholder="Masukkan Jumlah Stok">
+                  <label for="floatingCity">Jumlah Stok</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="harga" name="harga"
                                     placeholder="Masukkan Harga Barang">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Tambah</button>
-                </div>
-            </form>
+                <label for="floatingSelect">Harga Barang</label>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-floating">
+                <input class="form-control" type="file" id="foto" name="foto">
+                <label for="floatingZip">Foto</label>
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+          </form><!-- End floating Labels Form -->
+
         </div>
-    </div>
+      </div>
+      
 @endsection
 @section('css')
     <link rel="stylesheet" href="{{ url('plugins/summernote/summernote-bs4.min.css') }}">
@@ -111,7 +94,9 @@
     <script>
         $(document).ready(function() {
             // Format input harga saat dokumen di-load
-            $('#harga').mask('000.000.000', { reverse: true });
+            $('#harga').mask('000.000.000', {
+                reverse: true
+            });
 
             // Format input harga saat nilai diubah
             $('#harga').on('input', function() {

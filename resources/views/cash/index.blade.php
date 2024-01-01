@@ -19,8 +19,9 @@
                             <tr >
                                 <th class="border-top-0">Merk</th>
                                 <th class="border-top-0">Nama Barang</th>
-                                <th class="border-top-0">Pembeli</th>
+                                <th class="border-top-0">Pcs</th>
                                 <th class="border-top-0">Harga</th>
+                                <th class="border-top-0">Total Pembelian</th>
                                 <th class="border-top-0">Tanggal Terjual</th>
                             </tr>
                         </thead>
@@ -29,8 +30,9 @@
                                 <tr>
                                     <td>{{ $data->merk }}</td>
                                     <td>{{ $data->namaB }}</td>
-                                    <td>{{ $data->namaC }}</td>
+                                    <td>{{ $data->unit }}</td>
                                     <td>Rp. {{ number_format($data->harga, 0, ',', '.') }}</td>
+                                    <td>Rp. {{ number_format($data->total, 0, ',', '.') }}</td>
                                     <td>{{ $data->created_at->format('d-m-Y') }}</td> 
                                 </tr>
                             @endforeach

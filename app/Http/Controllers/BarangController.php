@@ -88,9 +88,9 @@ class BarangController extends Controller
 
             ]);
         } else {
-            Storage::disk('local')->delete('storage/barang/' . $barang->foto);
+            Storage::disk('local')->delete('public/barang/' . $barang->foto);
             $foto = $request->file('foto');
-            $foto->storeAs("storage/barang", $foto->hashName());
+            $foto->storeAs("public/barang", $foto->hashName());
             $barang->update([
                 'kategori' => $request->kategori,
                 'merk' => $request->merk,

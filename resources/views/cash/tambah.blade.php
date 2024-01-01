@@ -28,9 +28,9 @@
                     </div>
                     <div class="row">
                         <div class="col col-md-12 form-group">
-                            <label>Nama Pelanggan</label>
-                            <input type="text" class="form-control" id="namaC" name="namaC"
-                                placeholder="Masukkan Nama Pembeli">
+                            <label>Jumlah Unit</label>
+                            <input type="text" class="form-control" id="unit" name="unit"
+                                placeholder="Masukkan Berapa Unit Barang Yang dibeli">
                         </div>
                     </div>
                     <div class="row">
