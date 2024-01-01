@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('judul')
-    Halaman Barang Masuk
+    Halaman Tambah Pelanggan Cash
 @endsection
 @section('isi')
     <br>
