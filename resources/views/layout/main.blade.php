@@ -183,6 +183,7 @@
     <script src="{{ url('admin/assets/vendor/simple-datatables/simple-datatables.js') }}"></script>
     <script src="{{ url('admin/assets/vendor/tinymce/tinymce.min.js') }}"></script>
     <script src="{{ url('admin/assets/vendor/php-email-form/validate.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Template Main JS File -->
     <script src="{{ url('admin/assets/js/main.js') }}"></script>

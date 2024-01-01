@@ -50,7 +50,7 @@
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger rounded-pill">
                                                 <div class="icon">
-                                                    <i class="bi bi-trash-fill"></i>
+                                                    <i class="bi bi-exclamation-octagon"></i>
                                                 </div>
                                             </button>
                                         </form>

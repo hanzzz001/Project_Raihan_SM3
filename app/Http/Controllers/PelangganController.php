@@ -109,9 +109,12 @@ class PelangganController extends Controller
             'lama' => $angsuranInput,
         ]);
 
-        // $pelanggan->update([
-        //     'lama' => $request->lama,
-        // ]);
+        // Jika angsuran ke-10, tandai sebagai 'Lunas'
+        if ($angsuranInput == 10) {
+            $pelanggan->update([
+                'status' => 'Lunas',
+            ]);
+        }
 
         if ($pelanggan) {
             return redirect()->route('pelanggan.index')->with(['success' => 'Data Berhasil Diubah!']);
@@ -128,5 +131,5 @@ class PelangganController extends Controller
         //
     }
 
-    
+
 }

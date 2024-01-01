@@ -17,6 +17,14 @@
         </a>
     </li><!-- End Profile Page Nav -->
 
+    <li class="nav-heading">Detail Kredit</li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ url('pelanggan') }}">
+            <i class="ri-account-circle-fill"></i>
+            <span>Info Pelanggan</span>
+        </a>
+    </li>
+
     <li class="nav-heading">Penjualan</li>
     <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('terjual') }}">
@@ -30,20 +38,4 @@
             <span>Cash</span>
         </a>
     </li>
-
-    <li class="nav-heading">Detail Kredit</li>
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('pelanggan') }}">
-            <i class="ri-account-circle-fill"></i>
-            <span>Info Pelanggan</span>
-        </a>
-    </li>
-{{-- @elseif ($user->level == 2)
-    <li class="nav-heading">Detail Kredit</li>
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('pelanggan') }}">
-            <i class="bi bi-envelope"></i>
-            <span>Info Pelanggan</span>
-        </a>
-    </li> --}}
 @endif

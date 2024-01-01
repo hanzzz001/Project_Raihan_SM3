@@ -20,8 +20,10 @@
                             <th scope="col">No</th>
                             <th class="border-top-0">Nama Barang</th>
                             <th class="border-top-0">Nama Pembeli</th>
+                            <th class="border-top-0">Pcs</th>
                             <th class="border-top-0">Harga Barang</th>
                             <th class="border-top-0">Tanggal Terjual</th>
+                            <th class="border-top-0">Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,8 +35,16 @@
                                 <td>{{ $startId++ }}</td>
                                 <td>{{ $data->namaB }}</td>
                                 <td>{{ $data->namaC }}</td>
+                                <td>{{ $data->unit }}</td>
                                 <td>{{ $data->nominal }} x 10 Bln</td>
                                 <td>{{ $data->created_at->format('Y-m-d') }}</td>
+                                <td>
+                                    @if ($data->status == 'Lunas')
+                                        <span class="badge bg-success">Lunas</span>
+                                    @else
+                                        <span class="badge bg-danger">Belum Lunas</span>
+                                    @endif
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

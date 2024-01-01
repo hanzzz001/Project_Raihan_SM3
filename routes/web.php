@@ -38,6 +38,12 @@ Route::group(['middleware' => ['auth']],function(){
         Route::resource('pelanggan', PelangganController::class);
         Route::resource('cash', CashController::class);
         Route::get('/terjual', [PelangganController::class, 'terjual'])->name('pelanggan.terjual');
+
+        // Tambahkan rute pembaruan status (Ditarik)
+        Route::put('/updateStatusDitarik/{id}', [PelangganController::class, 'updateStatusDitarik']);
+        
+        // Tambahkan rute penghapusan data (Ditarik)
+        Route::delete('/deletePelanggan/{id}', [PelangganController::class, 'deletePelanggan']);
     });
 
     Route::group(['middleware' => ['cekUserLogin:2']],function(){
