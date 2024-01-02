@@ -38,4 +38,12 @@
             <span>Cash</span>
         </a>
     </li>
+@elseif ($user->level == 2)
+    <li class="nav-heading">Detail Kredit</li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ url('pelanggan') }}">
+            <i class="ri-account-circle-fill"></i>
+            <span>Info Pelanggan</span>
+        </a>
+    </li>
 @endif

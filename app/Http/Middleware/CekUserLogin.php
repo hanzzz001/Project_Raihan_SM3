@@ -21,6 +21,10 @@ class CekUserLogin
         }
 
         $user = Auth::user();
+        if ($user->level == 1 ) {
+            return $next($request);
+        }
+
         if ($user->level == $rules) {
             return $next($request);
         }
