@@ -6,7 +6,7 @@
 @endsection
 
 @section('judul')
-    Halaman Home
+    Halaman Dashboard
 @endsection
 
 @section('isi')
@@ -146,8 +146,8 @@
                                 },
                                 xaxis: {
                                     // type: 'datetime',
-                                    // categories: @json($dataBulan),
-                                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep','Okt','Nov','Des'],
+                                    categories: @json($dataBulan),
+                                    // categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep','Okt','Nov','Des'],
                                 },
                                 yaxis: {
                                     labels: {
