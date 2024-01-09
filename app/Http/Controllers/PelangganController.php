@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
 use App\Models\Pelanggan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,8 @@ class PelangganController extends Controller
     public function create()
     {
         $user = Auth::user();
-        return view('pelanggan.tambah', compact('user'));
+        $barangs = Barang::all();
+        return view('pelanggan.tambah', compact('user', 'barangs'));
     }
 
     /**
@@ -47,14 +49,27 @@ class PelangganController extends Controller
         $ktp->storeAs('public/pelanggan', $ktp->hashName());
         $kk = $request->file('kk');
         $kk->storeAs('public/pelanggan', $kk->hashName());
+
+        $barangId = $request->input('barang_id');
+        $barang = Barang::find($barangId);
+
+        if (!$barang) {
+            return redirect()->route('pelanggan.index')->with(['error' => 'Barang tidak ditemukan']);
+        }
+
+        if ($barang->stok < $request->unit) {
+            return redirect()->route('pelanggan.index')->with(['error' => 'Stok barang tidak mencukupi']);
+        }
+
         $pelanggan = Pelanggan::create([
             'namaC' => $request->namaC,
             'noHp' => $request->noHp,
             'alamat' => $request->alamat,
-            'kategori' => $request->kategori,
-            'merk' => $request->merk,
-            'namaB' => $request->namaB,
-            'tipe_ukuran' => $request->tipe_ukuran,
+            'barang_id' => $barangId,
+            'kategori' => $request  ->kategori,
+            'merk' => $barang->merk,
+            'namaB' => $barang->namaB,
+            'tipe_ukuran' => $barang->tipe_ukuran,
             'nominal' => $request->nominal,
             'lama' => $request->lama,
             'ktp' => $ktp->hashName(),
@@ -62,6 +77,10 @@ class PelangganController extends Controller
             'harga' => $request->harga,
             'unit' => $request->unit,
         ]);
+
+        // Kurangi stok barang setelah pembelian
+        $barang->stok -= $request->unit;
+        $barang->save();
 
         if ($pelanggan) {
             return redirect()->route('pelanggan.index')->with(['success' => 'Data Berhasil Disimpan!']);

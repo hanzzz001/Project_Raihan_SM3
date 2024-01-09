@@ -17,7 +17,7 @@
                     <table class="table table-secondary datatable">
                         <thead>
                             <tr >
-                                <th class="border-top-0">Merk</th>
+                                <th class="border-top-0">Kategori</th>
                                 <th class="border-top-0">Nama Barang</th>
                                 <th class="border-top-0">Pcs</th>
                                 <th class="border-top-0">Harga</th>
@@ -28,8 +28,8 @@
                         <tbody>
                             @foreach ($cash as $data)
                                 <tr>
-                                    <td>{{ $data->merk }}</td>
-                                    <td>{{ $data->namaB }}</td>
+                                    <td>{{ $data->kategori }}</td>
+                                    <td>{{ $data->merk }}-{{ $data->namaB }}-{{ $data->tipe_ukuran }}</td>
                                     <td>{{ $data->unit }}</td>
                                     <td>Rp. {{ number_format($data->harga, 0, ',', '.') }}</td>
                                     <td>Rp. {{ number_format($data->total, 0, ',', '.') }}</td>

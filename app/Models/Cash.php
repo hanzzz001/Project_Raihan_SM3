@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cash extends Model
 {
     use HasFactory;
-    protected $fillable = ['merk', 'namaB', 'harga','unit','total'];
+    protected $fillable = ['barang_id','kategori','merk', 'namaB','tipe_ukuran', 'harga','unit','total'];
 
     protected static function booted()
     {

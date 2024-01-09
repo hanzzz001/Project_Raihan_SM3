@@ -6,7 +6,7 @@
     <br>
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Floating labels Form</h5>
+            <h5 class="card-title">Pelanggat Kredit</h5>
 
             <!-- Floating Labels Form -->
             <form class="row g-3" action="{{ route('pelanggan.store') }}" method="POST" enctype="multipart/form-data">
@@ -20,30 +20,21 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
+                        <textarea class="form-control" class="form-control" id="alamat" name="alamat" placeholder="Masukkan Alamat Pembeli"
+                            style="height: 20px;"></textarea>
+                        <label for="floatingTextarea">Alamat Pembeli</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
                         <input type="text" class="form-control" id="noHp" name="noHp"
                             placeholder="Masukkan Merk Barang">
                         <label for="floatingEmail">No HP</label>
                     </div>
                 </div>
-
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="merk" name="merk"
-                            placeholder="Masukkan Merk Barang">
-                        <label for="floatingEmail">Merk Barang</label>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-floating">
-                        <input type="text" class="form-control" id="namaB" name="namaB"
-                            placeholder="Masukkan Nama Barang">
-                        <label for="floatingPassword">Nama Barang</label>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-floating">
-                        <select class="form-select" aria-label="Default select example" id="kategori" name="kategori"
-                            aria-placeholder="Pilih Jenis Barang">
+                        <select class="form-select" aria-label="Default select example" id="kategori" name="kategori" aria-placeholder="Pilih Kategori Barang">
                             <option value="Elektronik">Elektronik</option>
                             <option value="Meuble">Meuble</option>
                         </select>
@@ -52,15 +43,12 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                      <textarea class="form-control" class="form-control" id="tipe_ukuran" name="tipe_ukuran" style="height: 100px;"></textarea>
-                      <label for="floatingTextarea">Tipe/Ukuran Barang</label>
-                    </div>
-                  </div>
-                <div class="col-md-6">
-                    <div class="form-floating">
-                        <textarea class="form-control" class="form-control" id="alamat" name="alamat" placeholder="Masukkan Alamat Pembeli"
-                            style="height: 100px;"></textarea>
-                        <label for="floatingTextarea">Alamat Pembeli</label>
+                        <select name="barang_id" class="form-control">
+                            @foreach($barangs as $barang)
+                                <option value="{{ $barang->id }}">{{ $barang->merk }} - {{ $barang->namaB }} - {{ $barang->tipe_ukuran }}</option>
+                            @endforeach
+                        </select>
+                        <label for="floatingEmail">Pilih Barang</label>
                     </div>
                 </div>
                 <div class="col-md-6">

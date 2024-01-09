@@ -4,47 +4,52 @@
 @endsection
 @section('isi')
     <br>
-    <div class="col">
-        <div class="card card-primary">
-            <div class="card-header">
-                <h3 class="card-title">Tambah Data Barang Baru Masuk</h3>
-            </div>
-            <form action="{{ route('cash.store') }}" method="POST" enctype="multipart/form-data">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Pelanggan Cash</h5>
+
+            <!-- Floating Labels Form -->
+            <form class="row g-3" action="{{ route('cash.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col col-md-12 form-group">
-                            <label>Merk</label>
-                            <input type="text" class="form-control" id="merk" name="merk"
-                                placeholder="Masukkan Merk Barang">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col col-md-12 form-group">
-                            <label>Nama Barang</label>
-                            <input type="text" class="form-control" id="namaB" name="namaB"
-                                placeholder="Masukkan Nama Barang">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col col-md-12 form-group">
-                            <label>Jumlah Unit</label>
-                            <input type="text" class="form-control" id="unit" name="unit"
-                                placeholder="Masukkan Berapa Unit Barang Yang dibeli">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col col-md-12 form-group">
-                            <label>Harga</label>
-                            <input type="text" class="form-control" id="harga" name="harga"
-                                placeholder="Masukkan Harga Barang">
-                        </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <select class="form-select" aria-label="Default select example" id="kategori" name="kategori" aria-placeholder="Pilih Kategori Barang">
+                            <option value="Elektronik">Elektronik</option>
+                            <option value="Meuble">Meuble</option>
+                        </select>
+                        <label for="floatingName">Kategori Barang</label>
                     </div>
                 </div>
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <select name="barang_id" class="form-control">
+                            @foreach($barangs as $barang)
+                                <option value="{{ $barang->id }}">{{ $barang->merk }} - {{ $barang->namaB }} - {{ $barang->tipe_ukuran }}</option>
+                            @endforeach
+                        </select>
+                        <label for="floatingEmail">Nama Barang</label>
+                    </div>
                 </div>
-            </form>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="unit" name="unit"
+                            placeholder="Masukkan Harga Barang">
+                        <label for="floatingSelect">Jumlah Pcs</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="harga" name="harga"
+                            placeholder="Masukkan Harga Barang">
+                        <label for="floatingSelect">Harga</label>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+            </form><!-- End floating Labels Form -->
+
         </div>
     </div>
 @endsection
@@ -69,7 +74,9 @@
     <script>
         $(document).ready(function() {
             // Format input harga saat dokumen di-load
-            $('#harga').mask('000.000.000', { reverse: true });
+            $('#harga').mask('000.000.000', {
+                reverse: true
+            });
 
             // Format input harga saat nilai diubah
             $('#harga').on('input', function() {

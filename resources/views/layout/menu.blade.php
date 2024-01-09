@@ -21,7 +21,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('pelanggan') }}">
             <i class="ri-account-circle-fill"></i>
-            <span>Info Pelanggan</span>
+            <span>Pelanggan Kredit</span>
         </a>
     </li>
 

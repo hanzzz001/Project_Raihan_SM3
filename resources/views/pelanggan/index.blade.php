@@ -40,9 +40,7 @@
                                         <td>{{ $data->namaC }}</td>
                                         <td>{{ $data->kategori }}</td>
                                         <td>
-                                            {{ $data->namaB }} <br>
-                                            {{ $data->merk }} <br>
-                                            {{ $data->tipe_ukuran }} <br>
+                                            {{ $data->merk }} - {{ $data->namaB }} - {{ $data->tipe_ukuran }}
                                         </td>
                                         <td>Rp. {{ number_format($data->harga, 0, ',', '.') }}</td>
                                         <td>
@@ -109,7 +107,7 @@
                                                                                         class="col-lg-3 col-md-4 label">
                                                                                         Barang</div>
                                                                                     <div class="col-lg-9 col-md-8">
-                                                                                        {{ $data->namaB }}</div>
+                                                                                        {{ $data->namaB }} - {{ $data->merk }} - {{ $data->tipe_ukuran }} </div>
                                                                                 </div>
 
                                                                                 <div class="row">
@@ -285,7 +283,7 @@
         </div>
     @endsection
     @section('js')
-        <script>
+        {{-- <script>
             $(function() {
                 $("#example1").DataTable({
                     "responsive": true,
@@ -318,5 +316,5 @@
                     }
                 });
             }
-        </script>
+        </script> --}}
     @endsection

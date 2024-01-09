@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barang;
 use App\Models\Cash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +25,8 @@ class CashController extends Controller
     public function create()
     {
         $user = Auth::user();
-        return view('cash.tambah',compact ('user'));
+        $barangs = Barang::all();
+        return view('cash.tambah',compact ('user','barangs'));
     }
 
     /**
@@ -32,12 +34,28 @@ class CashController extends Controller
      */
     public function store(Request $request)
     {
+        $barangId = $request->input('barang_id');
+        $barang = Barang::find($barangId);
+
+        if (!$barang) {
+            return redirect()->route('pelanggan.index')->with(['error' => 'Barang tidak ditemukan']);
+        }
+
+        if ($barang->stok < $request->unit) {
+            return redirect()->route('pelanggan.index')->with(['error' => 'Stok barang tidak mencukupi']);
+        }
         $cash = Cash::create([
-            'merk' => $request->merk,
-            'namaB' => $request->namaB,
+            'barang_id' => $barangId,
+            'kategori' => $request->kategori,
+            'merk' => $barang->merk,
+            'namaB' => $barang->namaB,
+            'tipe_ukuran' => $barang->tipe_ukuran,
             'unit' => $request->unit,
             'harga' => $request->harga,
         ]);
+
+        $barang->stok -= $request->unit;
+        $barang->save();
 
         if ($cash) {
             return redirect()->route('cash.index')->with(['success' => 'Data Berhasil Disimpan!']);

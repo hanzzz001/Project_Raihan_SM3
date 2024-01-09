@@ -81,9 +81,9 @@ class BarangController extends Controller
         if ($request->file('foto') == "") {
             $barang->update([
                 'kategori' => $request->kategori,
-                'merk' => $request->merk,
+                // 'merk' => $request->merk,
                 'namaB' => $request->namaB,
-                'tipe_ukuran' => $request->tipe_ukuran,
+                // 'tipe_ukuran' => $request->tipe_ukuran,
                 'stok' => $request->stok,
 
             ]);
