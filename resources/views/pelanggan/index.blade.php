@@ -45,7 +45,7 @@
                                         <td>Rp. {{ number_format($data->harga, 0, ',', '.') }}</td>
                                         <td>
                                             @if ($data->lama >= 10)
-                                                <span class="badge bg-success">Lunas</span>
+                                                <span class="badge bg-success">{{ $data->status }}</span>
                                             @else
                                                 <div class="spinner-border text-warning" role="status">
                                                     <span class="visually-hidden"></span>
@@ -249,7 +249,7 @@
                                                                             <label>Angsuran</label>
                                                                             <input type="text" class="form-control"
                                                                                 id="lama" name="lama"
-                                                                                placeholder="Angsuran Ke">
+                                                                                placeholder="Angsuran Ke" value="{{ $data->lama }}">
                                                                         </div>
                                                                     </div>
                                                                 </div>

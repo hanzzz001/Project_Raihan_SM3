@@ -28,7 +28,7 @@
                     </thead>
                     <tbody>
                         @php
-                            $startId = 1; 
+                            $startId = 1;
                         @endphp
                         @foreach ($pelanggan as $data)
                             <tr>
@@ -39,10 +39,10 @@
                                 <td>{{ $data->nominal }} x 10 Bln</td>
                                 <td>{{ $data->created_at->format('Y-m-d') }}</td>
                                 <td>
-                                    @if ($data->status == 'Lunas')
-                                        <span class="badge bg-success">Lunas</span>
+                                    @if ($data->lama >= 10)
+                                        <span class="badge bg-success">{{ $data->status }}</span>
                                     @else
-                                        <span class="badge bg-danger">Belum Lunas</span>
+                                        <span class="badge bg-danger">{{ $data->status }}</span>
                                     @endif
                                 </td>
                             </tr>
